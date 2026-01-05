@@ -44,7 +44,10 @@ def login(usuario, contrasena):
         query = "SELECT * FROM users WHERE usuario = ? AND contrasena = ?"
         params = (usuario, contrasena)
         user = db_service.fetch_one(query, params)
-        return True
+        if user:
+            return True
+        else:
+            return False
     except Exception as e:
         print(f"Login error: {e}")
         return False
