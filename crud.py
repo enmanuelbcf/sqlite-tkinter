@@ -39,4 +39,12 @@ def delete_user(user_id):
     params = (user_id,)
     db_service.execute_query(query, params)
 
-
+def login(usuario, contrasena):
+    try:
+        query = "SELECT * FROM users WHERE usuario = ? AND contrasena = ?"
+        params = (usuario, contrasena)
+        user = db_service.fetch_one(query, params)
+        return True
+    except Exception as e:
+        print(f"Login error: {e}")
+        return False
