@@ -57,3 +57,4 @@ class DataBaseServices:
           print(f"An error occurred: {e}")
           return None
             
+db_service = DataBaseServices()
