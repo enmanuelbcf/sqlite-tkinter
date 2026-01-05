@@ -56,5 +56,6 @@ class DataBaseServices:
       except sqlite3.Error as e:
           print(f"An error occurred: {e}")
           return None
-            
-db_service = DataBaseServices()
+
+
+

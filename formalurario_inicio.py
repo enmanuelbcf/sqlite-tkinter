@@ -1,6 +1,16 @@
 import tkinter as tk
+from tkinter import messagebox
 import crud
 from crud import login
+
+def iniciar_sesion():
+    usuario = nombre.get()
+    contrasena = contraseña.get()
+    if crud.login(usuario, contrasena):
+        tk.messagebox.showinfo("Éxito", "Inicio de sesión exitoso")
+    else:
+        tk.messagebox.showerror("Error", "Usuario o contraseña incorrectos")
+
 
 formulario_inicio = tk.Tk()
 formulario_inicio.geometry("500x500")
@@ -12,7 +22,7 @@ frame_img = tk.Frame(formulario_inicio)
 frame_img.pack(pady=20)
 
 img = tk.PhotoImage(
-    file=r"C:\Users\Admin\OneDrive\Desktop\sqlite-tkinter\image.png"
+    file=r"C:\DEVELOPMENTS\prueba-tkinter\image.png"
 )
 
 # Agrandar imagen
@@ -54,8 +64,9 @@ contraseña.grid(row=1, column=1, padx=10, pady=15)
 tk.Button(formulario_inicio, 
           text="Iniciar Sesión", 
           font=("Arial, 12"), 
-          cursor="hand2", command=login(nombre.get(), contraseña.get())).pack()
+          cursor="hand2", command=iniciar_sesion).pack()
 
 formulario_inicio.mainloop()
+
 
 
